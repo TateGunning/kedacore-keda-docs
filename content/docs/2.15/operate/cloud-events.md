@@ -50,7 +50,21 @@ In general, an event emitted by KEDA would fundamentally come down to the follow
    }
 }
 ```
+### Scopes: Namespace vs. Cluster
 
+Each `CloudEventSource` is defined in one namespace and will only subscribe to events inside that namespace. If you want to subscribe to events in all namespaces, you can instead create a `ClusterCloudEventSource` resource.
+
+Defining a `ClusterCloudEventSource` works almost identically to a `CloudEventSource`, except there is no `metadata.namespace` value:
+
+```yaml
+apiVersion: keda.sh/v1alpha1
+kind: ClusterCloudEventSource
+metadata:
+  name: {cluster-cloudeventsource-name}
+spec:
+  # As before ..
+```
+  
 ## Event Sinks
 
 There will be multiple types of destination to emit KEDA events to.
@@ -84,7 +98,7 @@ Here is an overview of the supported authentication types:
 - `accessKey` - Access key string for the Azure Event Grid connection auth.
 
 #### Pod identity based authentication
-[Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) providers can be used.
+[Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) provider can be used.
 
 ```yaml
 apiVersion: keda.sh/v1alpha1
@@ -113,4 +127,5 @@ eventSubscription: #Optional. Submit included/excluded event types will filter e
 | Event Type                    | Scenario Description                                                                                                        | 
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------| 
 | `keda.scaledobject.ready.v1`  | On the first time a ScaledObject is ready, or if the previous ready condition status of the object was `Unknown` or `False` |  
-| `keda.scaledobject.failed.v1` | If the check validation for a ScaledObject fails                                                                            |      
+| `keda.scaledobject.failed.v1` | If the check validation for a ScaledObject fails                                                                            |  
+| `keda.scaledobject.removed.v1`| When a ScaledObject is deleted |       
