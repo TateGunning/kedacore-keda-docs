@@ -4,4 +4,8 @@ CheckExternal: false
 IgnoreAltMissing: true
 IgnoreEmptyHref: true
 IgnoreInternalURLs:
-  - /docs/2.14/scalers/splunk/
+  # Temporal ignores
+  - /docs/2.16/scalers/nsq/
+  # Deprecated and removed resources
+
+  # Renamed pages

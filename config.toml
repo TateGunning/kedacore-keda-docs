@@ -29,7 +29,7 @@ alpine_js_version = "2.2.1"
 favicon = "favicon.png"
 
 [params.versions]
-docs = ["2.14", "2.13", "2.12", "2.11", "2.10", "2.9", "2.8", "2.7", "2.6", "2.5", "2.4", "2.3", "2.2", "2.1", "2.0", "1.5", "1.4"]
+docs = ["2.16", "2.15", "2.14", "2.13", "2.12", "2.11", "2.10", "2.9", "2.8", "2.7", "2.6", "2.5", "2.4", "2.3", "2.2", "2.1", "2.0", "1.5", "1.4"]
 
 # Site fonts. For more options see https://fonts.google.com.
 [[params.fonts]]
@@ -164,10 +164,47 @@ parent = "docs"
 weight = 1
 
 [[menu.docs]]
-url = "/docs/concepts/"
+url = "/docs/concepts"
 name = "Concepts"
+identifier = "Concepts"
 parent = "docs"
 weight = 2
+
+[[menu.docs]]
+url = "/docs/concepts/scaling-deployments/"
+name = "Scaling Deployments, StatefulSets & Custom Resources"
+parent = "Concepts"
+weight = 1
+
+[[menu.docs]]
+url = "/docs/concepts/scaling-jobs/"
+name = "Scaling Jobs"
+parent = "Concepts"
+weight = 2
+
+[[menu.docs]]
+url = "/docs/concepts/authentication/"
+name = "Authentication"
+parent = "Concepts"
+weight = 3
+
+[[menu.docs]]
+url = "/docs/concepts/external-scalers/"
+name = "External Scalers"
+parent = "Concepts"
+weight = 4
+
+[[menu.docs]]
+url = "/docs/concepts/admission-webhooks/"
+name = "Admission Webhooks"
+parent = "Concepts"
+weight = 5
+
+[[menu.docs]]
+url = "/docs/concepts/troubleshooting/"
+name = "Troubleshooting"
+parent = "Concepts"
+weight = 6
 
 [[menu.docs]]
 url = "/docs/concepts/#architecture"
@@ -176,28 +213,46 @@ parent = "docs"
 weight = 3
 
 [[menu.docs]]
+url = "/docs/scalers"
+name = "Scalers"
+parent = "docs"
+weight = 4
+
+[[menu.docs]]
 url = "/docs/operate/"
 name = "Operate"
 parent = "docs"
-weight = 4
+weight = 5
+
+[[menu.docs]]
+url = "/docs/integrations/"
+name = "Integrations"
+parent = "docs"
+weight = 6
+
+[[menu.docs]]
+url = "/docs/authentication-providers"
+name = "Auth providers"
+parent = "docs"
+weight = 7
 
 [[menu.docs]]
 url = "/docs/migration/"
 name = "Migration Guide"
 parent = "docs"
-weight = 5
+weight = 8
 
 [[menu.docs]]
 url = "/docs/reference/faq/"
 name = "FAQ"
 parent = "docs"
-weight = 6
+weight = 9
 
 [[menu.docs]]
 url = "/docs/troubleshooting/"
-name = "Troubleshooting"
+name = "Troubleshooting Guide"
 parent = "docs"
-weight = 7
+weight = 10
 
 [[menu.main]]
 url = "/blog"
@@ -257,32 +312,32 @@ identifier = "project"
 weight = 4
 
 [[menu.main]]
+url = "/support/"
+name = "Support"
+parent = "project"
+weight = 1
+
+[[menu.main]]
 url = "https://github.com/cncf/foundation/blob/master/code-of-conduct.md"
 name = "Code of Conduct"
 parent = "project"
-weight = 1
+weight = 2
 
 [[menu.main]]
 url = "https://github.com/kedacore/keda/blob/main/CHANGELOG.md"
 name = "Changelog"
 parent = "project"
-weight = 2
+weight = 3
 
 [[menu.main]]
 url = "https://github.com/kedacore/governance/blob/main/GOVERNANCE.md"
 name = "Governance"
 parent = "project"
-weight = 3
+weight = 4
 
 [[menu.main]]
 url = "https://github.com/kedacore/keda/blob/main/ROADMAP.md"
 name = "Roadmap"
-parent = "project"
-weight = 4
-
-[[menu.main]]
-url = "/support/"
-name = "Support"
 parent = "project"
 weight = 5
 
@@ -327,6 +382,11 @@ url = "https://store.cncf.io/collections/keda"
 name = "Merch"
 parent = "project"
 weight = 12
+
+[[menu.main]]
+url = "/enterprise/"
+name = "Enterprise"
+weight = 5
 
 # "Features" section on the main page
 [[params.features]]
@@ -467,6 +527,10 @@ url = "https://www.intercept.cloud"
 logo = "intercept.png"
 
 [[params.users]]
+url = "https://kaufland-ecommerce.com"
+logo = "kaufland-ecommerce.png"
+
+[[params.users]]
 url = "https://kendaxa.com"
 logo = "kendaxa.png"
 
@@ -505,6 +569,10 @@ logo = "nemlig.png"
 [[params.users]]
 url = "https://opsworks.co"
 logo = "opsworks.png"
+
+[[params.users]]
+url = "https://www.playstudios.com"
+logo = "playstudios.jpg"
 
 [[params.users]]
 url = "https://www.pollinate.global"
@@ -593,12 +661,8 @@ logo = "zapier.png"
 
 # "Partners" section on the Community page
 [[params.partners]]
-url = "https://kedify.io"
+url = "https://kedify.io/?utm_source=keda_oss_site"
 logo = "kedify.png"
-
-[[params.partners]]
-url = "https://microsoft.com"
-logo = "microsoft.png"
 
 [[params.partners]]
 url = "https://scrm.lidl"
@@ -625,23 +689,39 @@ logo = "snyk.png"
 url = "https://vexxhost.com"
 logo = "vexxhost.png"
 
-# "Commercial support" section on the support page
-[[params.vendors]]
-name = "Azure Container Apps"
-url = "https://docs.microsoft.com/en-us/azure/container-apps/scale-app"
-logo = "vendors/azure-container-apps.png"
-
-[[params.vendors]]
-name = "Custom Metrics Autoscaler on Red Hat OpenShift"
-url = "https://cloud.redhat.com/blog/custom-metrics-autoscaler-on-openshift"
-logo = "vendors/red-hat.png"
-
-[[params.vendors]]
-name = "KEDA Add-On for Azure Kubernetes Service"
-url = "https://docs.microsoft.com/en-us/azure/aks/keda-about"
-logo = "vendors/azure-kubernetes-service.png"
-
+# Enterprise page, sorted alphabetically by name of the vendor
 [[params.vendors]]
 name = "Kedify"
-url = "https://kedify.io"
 logo = "vendors/kedify.png"
+description = """
+Kedify is founded by the core maintainers of KEDA and offers enterprise autoscaling solutions based on KEDA, providing:
+- State-of-the-art scalers and features, including a **production-grade HTTP Scaler**, exclusively available in Kedify.
+- **Enterprise-grade support**, ensuring secure KEDA builds with timely updates, patches, and critical fixes.
+- A comprehensive **dashboard** for streamlined management and monitoring across multiple clusters.
+"""
+urls = [
+  { text = "Visit Kedify website for more details", url = "https://kedify.io/?utm_source=keda_oss_site" }
+]
+
+[[params.vendors]]
+name = "Microsoft"
+logo = "vendors/microsoft-azure.png"
+description = """
+Microsoft provides multiple solutions integrated with KEDA:
+- **Azure Container Apps**: Allows you to deploy microservices that automatically scale based on KEDA.
+- **KEDA Add-On for Azure Kubernetes Service**: Plugin for straightforward installation on Azure Kubernetes Service.
+"""
+urls = [
+  { text = "Azure Container Apps", url = "https://docs.microsoft.com/en-us/azure/container-apps/scale-app" },
+  { text = "AKS KEDA Add-On", url = "https://docs.microsoft.com/en-us/azure/aks/keda-about" }
+]
+
+[[params.vendors]]
+name = "Red Hat"
+logo = "vendors/red-hat.png"
+description = """
+Red Hat integrates KEDA with OpenShift through the **Custom Metrics Autoscaler** (CMA) available through the OpenShift Marketplace.
+"""
+urls = [
+  { text = "Learn more about the CMA", url = "https://cloud.redhat.com/blog/custom-metrics-autoscaler-on-openshift" }
+]
