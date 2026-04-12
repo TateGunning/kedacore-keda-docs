@@ -23,6 +23,6 @@
   "devDependencies": {
     "bulma": "^0.8.2",
     "hugo-extended": "0.93.2",
-    "netlify-cli": "^9.6.5"
+    "netlify-cli": "^22.0.0"
   }
 }
